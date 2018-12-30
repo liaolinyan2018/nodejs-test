@@ -37,6 +37,8 @@ var server = http.createServer(function(request, response){
   else if(path === '/xxx'){
     response.statusCode = 200
     response.setHeader('Content-Type','text/json;charset=utf-8')
+    /*jack网站http://jack.com:8002的服务器 允许 frank网站http://frank.com:8001的浏览器访问*/
+    response.setHeader('Access-Control-Allow-Origin', 'http://frank.com:8001')//cors跨域
     response.write(`
     {
       "note":{
